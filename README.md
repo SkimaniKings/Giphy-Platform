@@ -34,7 +34,7 @@ Prerequisites:
 
 ### Steps:
 1. Clone the Repository
-   git clone https://github.com/your-username/giffinity.git
+   git clone https://github.com/SkimaniKings/Giphy-Platform.git
    cd giffinity
 
 2. Install Dependencies
@@ -61,8 +61,7 @@ practices using Vercel.
 
 ## License
 This project is licensed under the MIT License.
-Author
-#### Simon Kimani
-- GitHub: https://github.com/SkimaniKings
+#### Author: Simon Kimani
+- GitHub: (https://github.com/SkimaniKings)
 - LinkedIn: [www.linkedin.com/in/simon-kimani-b78963196]
 
