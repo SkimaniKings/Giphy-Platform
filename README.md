@@ -3,6 +3,8 @@
 ## Overview
 Giffinity is a modern web platform that allows users to search, explore, share, favorite, and download GIFs seamlessly. Built using React with Vite and powered by the Giphy API, Giffinity delivers a fast, responsive, and interactive user experience.
 
+Live Link: https://giphy-platform.vercel.app/
+
 The project demonstrates practical implementation of API integration, responsive UI design, and cloud-based deployment through Vercel.
 Project Objectives
 1. API Integration: Implement the Giphy API for retrieving and displaying trending and searchable GIFs.
