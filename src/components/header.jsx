@@ -4,38 +4,31 @@ import GifSearch from "./gif-search";
 import {Link} from "react-router-dom";
 import {HiEllipsisVertical, HiMiniBars3BottomRight} from "react-icons/hi2";
 
-
 const Header = () => {
   const [categories, setCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
 
   const {filter, setFilter, favorites} = GifState();
 
-const fetchGifCategories = async () => {
-  try {
-    console.log("API Key:", import.meta.env.VITE_GIPHY_KEY); // 👈 check here
+  const fetchGifCategories = async () => {
+    try {
+      console.log("API Key:", import.meta.env.VITE_GIPHY_KEY);
 
-    const API_KEY = import.meta.env.VITE_GIPHY_KEY;
-    const res = await fetch(
-      `https://api.giphy.com/v1/gifs/categories?api_key=${API_KEY}`
-    );
+      const API_KEY = import.meta.env.VITE_GIPHY_KEY;
+      const res = await fetch(
+        `https://api.giphy.com/v1/gifs/categories?api_key=${API_KEY}`
+      );
 
-    if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${res.status}`);
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      const {data} = await res.json();
+      setCategories(data);
+    } catch (err) {
+      console.error("Error fetching categories:", err);
     }
-
-    const { data } = await res.json();
-    setCategories(data);
-  } catch (err) {
-    console.error("Error fetching categories:", err);
-  }
-};
-
-
-  // const fetchGifCategories = async () => {
-  //   const {data} = await gf.categories();
-  //   setCategories(data);
-  // };
+  };
 
   useEffect(() => {
     fetchGifCategories();
@@ -44,13 +37,17 @@ const fetchGifCategories = async () => {
   return (
     <nav>
       <div className="relative flex gap-4 justify-between items-center mb-2">
-        <Link to={"/"} className="flex gap-2">
-          <img src="/logo.svg" alt="Giphy Logo" className="w-8" />
-          <h1 className="text-5xl font-bold tracking-tight cursor-pointer">
-            Giphy
-          </h1>
+        <Link to={"/"} className="flex gap-3 items-center">
+          <img src="/logo.svg" alt="Giffinity Logo" className="w-12" />
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight cursor-pointer">
+              Giffinity
+            </h1>
+            <p className="text-sm font-medium text-gray-400 mt-1">
+              GIFs without limits
+            </p>
+          </div>
         </Link>
-
 
         <div className="font-bold text-md flex gap-2 items-center">
           {categories?.slice(0, 5).map((category) => {
